@@ -28,6 +28,52 @@
   targets.forEach(function (el) { observer.observe(el); });
 })();
 
+/* ---------- Scroll spy: underline the nav link for the section in view ----- */
+(function () {
+  var links = [].slice.call(document.querySelectorAll('.nav-links a[href^="#"]:not(.btn)'));
+  if (!links.length || !('IntersectionObserver' in window)) return;
+
+  var byId = {};
+  var sections = [];
+  links.forEach(function (a) {
+    var el = document.getElementById(a.getAttribute('href').slice(1));
+    if (el) { byId[el.id] = a; sections.push(el); }
+  });
+  if (!sections.length) return;
+
+  // Nav order is not page order (For Your Venue sits above How It Works), so
+  // sort by document position before picking the topmost visible section.
+  sections.sort(function (a, b) {
+    return (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING) ? -1 : 1;
+  });
+
+  var visible = {};
+
+  function paint() {
+    // The last section in document order that is still in the band wins. The
+    // outgoing section's tail overlaps the incoming section's head, and it is
+    // the incoming one the reader has actually arrived at.
+    var current = null;
+    for (var i = 0; i < sections.length; i++) {
+      if (visible[sections[i].id]) current = sections[i].id;
+    }
+    links.forEach(function (a) { a.classList.remove('active'); });
+    if (current && byId[current]) byId[current].classList.add('active');
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { visible[e.target.id] = e.isIntersecting; });
+    paint();
+  }, {
+    // Ignore the sticky header, and only count a section once it really owns
+    // the viewport rather than as its first pixel appears.
+    rootMargin: '-68px 0px -55% 0px',
+    threshold: 0
+  });
+
+  sections.forEach(function (s) { observer.observe(s); });
+})();
+
 /* ---------- Mobile nav ----------------------------------------------------- */
 (function () {
   var toggle = document.querySelector('.nav-toggle');
