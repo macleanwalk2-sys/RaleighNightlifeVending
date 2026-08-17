@@ -2,9 +2,9 @@
    Scroll reveal, mobile nav, footer year, and the contact form.
    Same approach as the Oakwood Marketing site: no dependencies, no build step. */
 
-/* ---------- Scroll reveal: fade elements in as they enter the viewport ------ */
+/* ---------- The one authored moment: the night band rises as it enters ----- */
 (function () {
-  var targets = document.querySelectorAll('.reveal');
+  var targets = document.querySelectorAll('.rise');
   if (!targets.length) return;
 
   // No IntersectionObserver (very old browser): just show everything.
