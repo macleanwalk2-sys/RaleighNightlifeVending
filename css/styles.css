@@ -229,16 +229,16 @@ img, svg { max-width: 100%; }
    Each section names its own vertical air. The night band gets the most,
    the sections flanking it get less, so the page has a cadence instead of
    one value repeated eight times. */
-section { padding: 96px 0; }
+section { padding: 72px 0; }
 .section-soft { background: var(--bg-soft); }
 
 /* Only the sections that break from the default declare their own air. The
    night band gets the most so it reads as the page's second anchor; the FAQ
    gets the least because a narrow read column needs less. */
-#compliance { padding: 128px 0; }
+#compliance { padding: 104px 0; }
 #faq        { padding: 64px 0; }
 
-.section-head { max-width: 40rem; margin: 0 0 var(--s-8); }
+.section-head { max-width: 40rem; margin: 0 0 var(--s-7); }
 .section-head h2 { font-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.25rem); margin: 0 0 var(--s-4); letter-spacing: -0.02em; line-height: 1.15; }
 .section-head p { color: var(--muted); margin: 0; font-size: 1.05rem; max-width: 34rem; }
 .section-head .section-note {
@@ -554,7 +554,7 @@ section { padding: 96px 0; }
 
 /* ---------- Hero ---------- */
 .hero {
-  padding-block: var(--s-10) var(--s-9);
+  padding: 104px 0 64px;
   position: relative;
   z-index: 2;
   background:
@@ -654,7 +654,7 @@ section { padding: 96px 0; }
   .about-grid,
   .contact-grid { grid-template-columns: 1fr; gap: var(--s-7); }
   .cards { grid-template-columns: 1fr; }
-  .hero { padding-block: var(--s-8) var(--s-7); }
+  .hero { padding: 56px 0 48px; }
   .footer-contact { text-align: left; }
 
   /* The route turns vertical: dots down the left, connectors between them. */
