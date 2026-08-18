@@ -28,6 +28,19 @@
   targets.forEach(function (el) { observer.observe(el); });
 })();
 
+/* ---------- Header goes solid once the hero is behind it -------------------- */
+(function () {
+  var header = document.querySelector('.site-header');
+  if (!header) return;
+  var stuck = null;
+  function sync() {
+    var next = window.scrollY > 8;
+    if (next !== stuck) { stuck = next; header.classList.toggle('is-stuck', next); }
+  }
+  sync();
+  window.addEventListener('scroll', sync, { passive: true });
+})();
+
 /* ---------- Scroll spy: underline the nav link for the section in view ----- */
 (function () {
   var links = [].slice.call(document.querySelectorAll('.nav-links a[href^="#"]:not(.btn)'));

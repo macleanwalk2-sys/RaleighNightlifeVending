@@ -17,10 +17,10 @@
 
   /* Night — the room the machine actually lives in. Plum-tinted, not neutral
      black, so the dark band reads as the same world as the hero illustration. */
-  --night: #180f14;
-  --night-2: #241820;
-  --night-line: #3a2a33;
-  --night-ink: #c3b2ba;
+  --night: #170a12;
+  --night-2: #22131c;
+  --night-line: #3a2130;
+  --night-ink: #c9b6bf;
 
   /* The one warm tone: nightlife light. */
   --lamp: #c98a3c;
@@ -116,10 +116,13 @@ img, svg { max-width: 100%; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(24, 15, 20, 0.86);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--night);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.28s ease;
 }
+/* The hairline only appears once the bar is over content, so it does not cut
+   across the hero while the page sits at the top. */
+.site-header.is-stuck { border-bottom-color: var(--night-line); }
 .site-header .brand { color: #fff; }
 
 .nav {
@@ -588,7 +591,9 @@ section { padding: 72px 0; }
   background: var(--night);
   color: #fff;
   overflow: hidden;
-  background-image: radial-gradient(64rem 34rem at 76% -18%, rgba(201, 138, 60, 0.20), transparent 62%);
+  background-image:
+    radial-gradient(58rem 34rem at 82% 2%, rgba(122, 47, 79, 0.22), transparent 74%),
+    radial-gradient(42rem 22rem at 60% 94%, rgba(201, 138, 60, 0.13), transparent 70%);
 }
 .hero-copy { max-width: 54rem; }
 
@@ -612,8 +617,8 @@ section { padding: 72px 0; }
   inset: 0;
   background: linear-gradient(180deg,
     var(--night) 0%,
-    rgba(24, 15, 20, 0.72) 26%,
-    rgba(24, 15, 20, 0) 62%);
+    rgba(23, 10, 18, 0.72) 26%,
+    rgba(23, 10, 18, 0) 62%);
 }
 
 .hero h1 {

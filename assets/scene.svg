@@ -2,7 +2,7 @@
      aria-label="Illustration of the Raleigh skyline at night with a lit vending machine on the sidewalk">
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"   stop-color="#2a1120"/>
+      <stop offset="0%"   stop-color="#170a12"/>
       <stop offset="55%"  stop-color="#4a2035"/>
       <stop offset="100%" stop-color="#6d3350"/>
     </linearGradient>
