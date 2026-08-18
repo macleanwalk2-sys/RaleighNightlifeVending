@@ -19,8 +19,8 @@ in its own colour.
 index.html
 css/styles.css       all styling
 js/main.js           scroll reveal, mobile nav, contact form
-assets/logo.svg      crescent moon mark (header and footer)
-assets/favicon.svg   browser tab icon, white moon on a plum tile
+assets/logo.svg      the cabinet mark, standalone plum version
+assets/favicon.svg   browser tab icon, white cabinet on a plum tile
 assets/scene.svg     the machine and two buildings, beside the headline
 ```
 
