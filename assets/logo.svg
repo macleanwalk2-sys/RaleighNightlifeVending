@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img"
      aria-label="Vending machine mark">
-  <rect x="13" y="5" width="22" height="38" rx="5" fill="none" stroke="#7a2f4f" stroke-width="3"/>
-  <rect x="18.5" y="11.5" width="11" height="13" rx="2" fill="#7a2f4f"/>
-  <rect x="18.5" y="31" width="11" height="3.4" rx="1.7" fill="#7a2f4f"/>
+  <rect x="13" y="5" width="22" height="38" rx="5" fill="none" stroke="#1d6e78" stroke-width="3"/>
+  <rect x="18.5" y="11.5" width="11" height="13" rx="2" fill="#1d6e78"/>
+  <rect x="18.5" y="31" width="11" height="3.4" rx="1.7" fill="#1d6e78"/>
 </svg>

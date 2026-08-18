@@ -19,8 +19,8 @@ in its own colour.
 index.html
 css/styles.css       all styling
 js/main.js           scroll reveal, mobile nav, contact form
-assets/logo.svg      the cabinet mark, standalone plum version
-assets/favicon.svg   browser tab icon, white cabinet on a plum tile
+assets/logo.svg      the cabinet mark, standalone teal version
+assets/favicon.svg   browser tab icon, white cabinet on a teal tile
 assets/scene.svg     the machine and two buildings, beside the headline
 ```
 
@@ -40,13 +40,17 @@ one shop's work:
   links sweep an underline. All motion is disabled for visitors who prefer
   reduced motion.
 
-**Colours:** plum (`#7a2f4f`) where Oakwood uses green, defined as CSS variables
-at the top of `styles.css`. Change them there and they change everywhere — that
-one swap is what makes a new Oakwood site. A warm lamp tone (`--lamp`) stands in
-for nightlife light in the illustration and the form notice.
+**Colours:** deep marine teal (`#1d6e78`) where Oakwood uses green, defined as
+CSS variables at the top of `styles.css`. Change them there and they change
+everywhere — that one swap is what makes a new Oakwood site.
 
-The plum was chosen to pass contrast with white text (8.9:1) so it can carry
-buttons and the dark footer, the same job green does on Oakwood.
+The teal is cool on purpose. A warm lamp tone (`--lamp`, `#d9a24e`) is then the
+only warmth anywhere on the page, so the lit machine in the hero reads as the
+single source of light in a dark room. Everything else — grounds, rules, muted
+text — is tinted toward the teal rather than left neutral grey.
+
+The teal passes contrast with white text (6.0:1) so it can carry buttons and the
+dark bands, the same job green does on Oakwood.
 
 ## Run it
 Open `index.html` directly, or serve the folder:

@@ -6,24 +6,25 @@
 
 :root {
   /* Brand */
-  --brand: #7a2f4f;
-  --brand-dark: #5f2440;
-  --brand-light: #f9eef2;
-  --ink: #171316;
-  --muted: #5c545a;
+  --brand: #1d6e78;
+  --brand-dark: #155259;
+  --brand-light: #e8f2f3;
+  --ink: #0f1519;
+  --muted: #4e5b61;
   --white: #ffffff;
-  --bg-soft: #faf7f8;
-  --border: #ece2e6;
+  --bg-soft: #f4f8f9;
+  --border: #dde7ea;
 
-  /* Night — the room the machine actually lives in. Plum-tinted, not neutral
+  /* Night — the room the machine actually lives in. Blue-tinted, not neutral
      black, so the dark band reads as the same world as the hero illustration. */
-  --night: #170a12;
-  --night-2: #22131c;
-  --night-line: #3a2130;
-  --night-ink: #c9b6bf;
+  --night: #0a1116;
+  --night-2: #131e25;
+  --night-line: #223038;
+  --night-ink: #a8bcc2;
 
-  /* The one warm tone: nightlife light. */
-  --lamp: #c98a3c;
+  /* The one warm tone. Against a cool ground it is the only warmth on the page,
+     so the lit machine reads as the single source of light in the room. */
+  --lamp: #d9a24e;
   --lamp-soft: #fdf4e8;
 
   /* Spacing scale, 4-unit base. Rhythm comes from choosing distant steps,
@@ -32,8 +33,8 @@
   --s-6: 32px;  --s-7: 48px;  --s-8: 64px;  --s-9: 96px;  --s-10: 128px;
 
   --radius: 10px;
-  --shadow: 0 6px 24px rgba(122, 47, 79, 0.08);
-  --shadow-lift: 0 10px 30px -8px rgba(23, 19, 22, 0.18);
+  --shadow: 0 6px 24px rgba(29, 110, 120, 0.10);
+  --shadow-lift: 0 10px 30px -8px rgba(10, 17, 22, 0.20);
 
   /* Three widths, each with a job. */
   --w-read: 680px;
@@ -48,7 +49,7 @@
 html {
   scroll-behavior: smooth;
   /* Browser surfaces belong to the design too. */
-  scrollbar-color: #d9c2cc transparent;
+  scrollbar-color: #bcd2d6 transparent;
 }
 
 [id] { scroll-margin-top: 96px; }
@@ -207,7 +208,7 @@ img, svg { max-width: 100%; }
 .btn-primary {
   background: var(--brand);
   color: #fff;
-  box-shadow: 0 6px 16px rgba(122, 47, 79, 0.22);
+  box-shadow: 0 6px 16px rgba(29, 110, 120, 0.24);
 }
 .btn-primary:hover { background: var(--brand-dark); color: #fff; }
 
@@ -221,15 +222,15 @@ img, svg { max-width: 100%; }
 }
 .btn-outline:hover { background: var(--brand-light); }
 
-/* On any dark surface the outline button borrows the lamp, not the plum. */
+/* On any dark surface the outline button borrows the lamp, not the brand colour. */
 .band-night .btn-outline,
 .hero .btn-outline {
   background: transparent;
   color: var(--lamp);
-  border-color: rgba(201, 138, 60, 0.55);
+  border-color: rgba(217, 162, 78, 0.55);
 }
 .band-night .btn-outline:hover,
-.hero .btn-outline:hover { background: rgba(201, 138, 60, 0.1); }
+.hero .btn-outline:hover { background: rgba(217, 162, 78, 0.1); }
 
 /* ---------- Section rhythm ----------
    Each section names its own vertical air. The night band gets the most,
@@ -278,14 +279,14 @@ section { padding: 72px 0; }
 .card:hover {
   box-shadow: var(--shadow);
   transform: translateY(-3px);
-  border-color: #e0cdd5;
+  border-color: #cbdde0;
 }
 .card::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--brand), #a84a70);
+  background: linear-gradient(90deg, var(--brand), #2b93a0);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.25s ease;
@@ -357,7 +358,7 @@ section { padding: 72px 0; }
   background: var(--night);
   color: #fff;
   /* Same lamp glow as the hero illustration, so the two read as one world. */
-  background-image: radial-gradient(58rem 30rem at 78% -12%, rgba(201, 138, 60, 0.16), transparent 62%);
+  background-image: radial-gradient(58rem 30rem at 78% -12%, rgba(217, 162, 78, 0.18), transparent 62%);
 }
 .band-night h2 { color: #fff; }
 .band-night .split-head p,
@@ -422,7 +423,7 @@ section { padding: 72px 0; }
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid var(--border);
-  background: linear-gradient(160deg, var(--brand-light), #f2e0e7);
+  background: linear-gradient(160deg, var(--brand-light), #dceaec);
   aspect-ratio: 4 / 3;
   min-height: 240px;
   display: flex;
@@ -448,7 +449,7 @@ section { padding: 72px 0; }
   gap: var(--s-2);
   padding: var(--s-5);
   text-align: center;
-  color: #b08b9c;
+  color: #8fa9b0;
   font-size: 0.85rem;
 }
 .photo-fallback svg { width: 26px; height: 26px; }
@@ -520,9 +521,9 @@ section { padding: 72px 0; }
   color: #fff;
 }
 .band-night .form-group input::placeholder,
-.band-night .form-group textarea::placeholder { color: #8d7b84; }
+.band-night .form-group textarea::placeholder { color: #7c8f96; }
 .band-night .form-group input:hover,
-.band-night .form-group textarea:hover { border-color: #4b3741; }
+.band-night .form-group textarea:hover { border-color: #35474f; }
 .band-night .form-group input:focus,
 .band-night .form-group textarea:focus { border-color: var(--lamp); }
 .band-night .contact-list { color: var(--night-ink); }
@@ -544,9 +545,9 @@ section { padding: 72px 0; }
   transition: border-color 0.15s ease;
 }
 .form-group input::placeholder,
-.form-group textarea::placeholder { color: #8d838a; }
+.form-group textarea::placeholder { color: #7d8b91; }
 .form-group input:hover,
-.form-group textarea:hover { border-color: #d9c5cd; }
+.form-group textarea:hover { border-color: #c3d5d9; }
 .form-group input:focus,
 .form-group textarea:focus { border-color: var(--brand); outline-offset: 1px; }
 .form-group textarea { resize: vertical; min-height: 96px; }
@@ -572,7 +573,7 @@ section { padding: 72px 0; }
   padding: var(--s-3) var(--s-4);
   border-radius: 8px;
   background: var(--brand-light);
-  border: 1px solid #eccfda;
+  border: 1px solid #cfe3e5;
   color: var(--brand-dark);
   font-size: 0.9rem;
 }
@@ -586,8 +587,8 @@ section { padding: 72px 0; }
   color: #fff;
   overflow: hidden;
   background-image:
-    radial-gradient(58rem 34rem at 82% 2%, rgba(122, 47, 79, 0.22), transparent 74%),
-    radial-gradient(42rem 22rem at 60% 94%, rgba(201, 138, 60, 0.13), transparent 70%);
+    radial-gradient(58rem 34rem at 82% 2%, rgba(29, 110, 120, 0.26), transparent 74%),
+    radial-gradient(42rem 22rem at 60% 94%, rgba(217, 162, 78, 0.15), transparent 70%);
 }
 /* Copy leads, the machine stands beside it. The art carries no background of
    its own, so it sits in the hero's night rather than in a box on top of it. */
@@ -657,7 +658,7 @@ section { padding: 72px 0; }
   margin-top: var(--s-6);
   padding-top: var(--s-5);
   font-size: 0.85rem;
-  color: #9d8c94;
+  color: #8798a0;
   text-align: center;
 }
 .footer-bottom p { margin: 0 0 var(--s-1); }
