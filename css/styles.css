@@ -116,10 +116,11 @@ img, svg { max-width: 100%; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
+  background: rgba(24, 15, 20, 0.86);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
+.site-header .brand { color: #fff; }
 
 .nav {
   display: flex;
@@ -149,23 +150,23 @@ img, svg { max-width: 100%; }
   padding: 0;
 }
 .nav-links a {
-  color: var(--muted);
+  color: var(--night-ink);
   font-weight: 500;
   font-size: 0.98rem;
 }
 .nav-links a:hover,
-.nav-links a.active { color: var(--brand); text-decoration: none; }
+.nav-links a.active { color: #fff; text-decoration: none; }
 
 .nav-toggle {
   display: none;
   background: none;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 8px;
   padding: var(--s-2) 10px;
   cursor: pointer;
   font-size: 1.1rem;
   line-height: 1;
-  color: var(--ink);
+  color: #fff;
 }
 
 /* Nav underline sweep */
@@ -175,7 +176,7 @@ img, svg { max-width: 100%; }
   position: absolute;
   left: 0; bottom: -4px;
   width: 100%; height: 2px;
-  background: var(--brand);
+  background: var(--lamp);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.28s ease;
@@ -217,13 +218,15 @@ img, svg { max-width: 100%; }
 }
 .btn-outline:hover { background: var(--brand-light); }
 
-/* On the night band the outline button borrows the lamp, not the plum. */
-.band-night .btn-outline {
+/* On any dark surface the outline button borrows the lamp, not the plum. */
+.band-night .btn-outline,
+.hero .btn-outline {
   background: transparent;
   color: var(--lamp);
   border-color: rgba(201, 138, 60, 0.55);
 }
-.band-night .btn-outline:hover { background: rgba(201, 138, 60, 0.1); }
+.band-night .btn-outline:hover,
+.hero .btn-outline:hover { background: rgba(201, 138, 60, 0.1); }
 
 /* ---------- Section rhythm ----------
    Each section names its own vertical air. The night band gets the most,
@@ -239,7 +242,7 @@ section { padding: 72px 0; }
 #faq        { padding: 64px 0; }
 
 .section-head { max-width: 40rem; margin: 0 0 var(--s-7); }
-.section-head h2 { font-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.25rem); margin: 0 0 var(--s-4); letter-spacing: -0.02em; line-height: 1.15; }
+.section-head h2 { font-size: clamp(1.9rem, 1.4rem + 2.1vw, 2.8rem); margin: 0 0 var(--s-4); letter-spacing: -0.035em; line-height: 1.08; }
 .section-head p { color: var(--muted); margin: 0; font-size: 1.05rem; max-width: 34rem; }
 .section-head .section-note {
   margin: var(--s-4) 0 0;
@@ -250,7 +253,7 @@ section { padding: 72px 0; }
 .section-head-center { max-width: 40rem; margin-inline: auto; text-align: center; }
 .section-head-center p { margin-inline: auto; }
 
-.split-head h2 { font-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.25rem); margin: 0 0 var(--s-4); letter-spacing: -0.02em; line-height: 1.15; }
+.split-head h2 { font-size: clamp(1.9rem, 1.4rem + 2.1vw, 2.8rem); margin: 0 0 var(--s-4); letter-spacing: -0.035em; line-height: 1.08; }
 .split-head p { color: var(--muted); margin: 0; font-size: 1.05rem; }
 
 /* ---------- Benefit grid ----------
@@ -504,6 +507,30 @@ section { padding: 72px 0; }
   padding: var(--s-7) var(--s-6);
   box-shadow: var(--shadow);
 }
+
+/* Contact sits on the night band, so its card and controls follow it down. */
+.band-night .form-card {
+  background: var(--night-2);
+  border-color: var(--night-line);
+  box-shadow: none;
+}
+.band-night .form-group label { color: #fff; }
+.band-night .optional { color: var(--night-ink); }
+.band-night .form-group input,
+.band-night .form-group textarea {
+  background: var(--night);
+  border-color: var(--night-line);
+  color: #fff;
+}
+.band-night .form-group input::placeholder,
+.band-night .form-group textarea::placeholder { color: #8d7b84; }
+.band-night .form-group input:hover,
+.band-night .form-group textarea:hover { border-color: #4b3741; }
+.band-night .form-group input:focus,
+.band-night .form-group textarea:focus { border-color: var(--lamp); }
+.band-night .contact-list { color: var(--night-ink); }
+.band-night .contact-list svg { color: var(--lamp); }
+.band-night .contact-list a { color: #fff; }
 .form-group { margin-bottom: var(--s-4); }
 .form-group label { display: block; font-weight: 500; font-size: 0.93rem; margin-bottom: var(--s-2); }
 .optional { color: var(--muted); font-weight: 400; }
@@ -555,55 +582,66 @@ section { padding: 72px 0; }
 
 /* ---------- Hero ---------- */
 .hero {
-  padding: 104px 0 64px;
   position: relative;
   z-index: 2;
-  background:
-    radial-gradient(1100px 380px at 85% -15%, var(--brand-light), transparent 62%),
-    linear-gradient(180deg, #ffffff 0%, var(--bg-soft) 100%);
+  padding: clamp(72px, 9vw, 128px) 0 clamp(240px, 30vw, 380px);
+  background: var(--night);
+  color: #fff;
+  overflow: hidden;
+  background-image: radial-gradient(64rem 34rem at 76% -18%, rgba(201, 138, 60, 0.20), transparent 62%);
 }
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  gap: var(--s-9);
-  align-items: center;
-}
-.hero h1 {
-  font-size: clamp(2.1rem, 1.3rem + 3vw, 3.1rem);
-  line-height: 1.08;
-  margin: 0 0 var(--s-5);
-  letter-spacing: -0.03em;
-}
-.hero .lead {
-  font-size: 1.15rem;
-  color: var(--muted);
-  margin: 0 0 var(--s-7);
-  max-width: 34rem;
-}
-.hero-actions { display: flex; gap: var(--s-3); flex-wrap: wrap; }
+.hero-copy { max-width: 54rem; }
 
-.hero-img {
-  width: 100%;
-  border-radius: 14px;
-  box-shadow: var(--shadow-lift);
+/* The skyline is the hero's ground, not a framed picture beside it. */
+.hero-scene {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: clamp(220px, 32vw, 400px);
+  pointer-events: none;
+}
+.hero-scene img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 50% 100%;
   display: block;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
-.hero-img:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 18px 42px -10px rgba(23, 19, 22, 0.3);
+/* Fades the illustration's own sky into the hero ground so there is no seam. */
+.hero-scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    var(--night) 0%,
+    rgba(24, 15, 20, 0.72) 26%,
+    rgba(24, 15, 20, 0) 62%);
 }
+
+.hero h1 {
+  font-size: clamp(2.5rem, 1.5rem + 4.4vw, 4.5rem);
+  line-height: 1.02;
+  margin: 0 0 var(--s-5);
+  letter-spacing: -0.04em;
+}
+.hero h1 .lit { color: var(--lamp); }
+.hero .lead {
+  font-size: clamp(1.05rem, 1rem + 0.4vw, 1.3rem);
+  color: var(--night-ink);
+  margin: 0 0 var(--s-7);
+  max-width: 36rem;
+}
+.hero-actions { display: flex; gap: var(--s-3); flex-wrap: wrap; align-items: center; }
 .img-caption {
-  font-size: 0.82rem;
-  color: var(--muted);
-  margin: var(--s-3) 0 0;
-  text-align: center;
+  font-size: 0.85rem;
+  color: var(--lamp);
+  letter-spacing: 0.02em;
+  margin: var(--s-7) 0 0;
 }
 
 /* ---------- Footer ---------- */
 .site-footer {
   background: var(--night);
   color: var(--night-ink);
+  border-top: 1px solid var(--night-line);
   padding: var(--s-8) 0 var(--s-6);
 }
 .footer-grid {
@@ -649,13 +687,11 @@ section { padding: 72px 0; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
-  .hero-grid,
   .compliance-grid,
   .machine-grid,
   .about-grid,
   .contact-grid { grid-template-columns: 1fr; gap: var(--s-7); }
   .cards { grid-template-columns: 1fr; }
-  .hero { padding: 56px 0 48px; }
   .footer-contact { text-align: left; }
 
   /* The route turns vertical: dots down the left, connectors between them. */
@@ -679,8 +715,8 @@ section { padding: 72px 0; }
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--border);
+    background: var(--night);
+    border-bottom: 1px solid var(--night-line);
     padding: var(--s-2) var(--s-5) var(--s-5);
   }
   .nav-links.open { display: flex; }
