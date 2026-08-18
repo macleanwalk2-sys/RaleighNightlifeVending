@@ -392,20 +392,14 @@ section { padding: 72px 0; }
 
 /* ---------- Split sections ---------- */
 .machine-grid,
-.about-grid,
 .contact-grid {
   display: grid;
   gap: var(--s-8) var(--s-9);
   align-items: center;
 }
 .machine-grid { grid-template-columns: 1fr 1fr; }
-.about-grid { grid-template-columns: 0.9fr 1.1fr; }
 .contact-grid { grid-template-columns: 1fr 1fr; align-items: start; }
 
-.about-role { color: var(--brand); font-weight: 600; margin: 0 0 var(--s-5); font-size: 0.98rem; }
-.about-copy p { color: var(--muted); }
-.about-copy p + p { margin-top: var(--s-4); }
-.about-copy .btn { margin-top: var(--s-5); }
 
 .spec-list { margin: var(--s-6) 0 0; display: grid; }
 .spec-list > div {
@@ -587,7 +581,7 @@ section { padding: 72px 0; }
 .hero {
   position: relative;
   z-index: 2;
-  padding: clamp(72px, 9vw, 128px) 0 clamp(240px, 30vw, 380px);
+  padding: clamp(72px, 9vw, 128px) 0 clamp(260px, 32vw, 460px);
   background: var(--night);
   color: #fff;
   overflow: hidden;
@@ -601,7 +595,7 @@ section { padding: 72px 0; }
 .hero-scene {
   position: absolute;
   left: 0; right: 0; bottom: 0;
-  height: clamp(220px, 32vw, 400px);
+  height: max(240px, 27vw);
   pointer-events: none;
 }
 .hero-scene img {
@@ -694,7 +688,6 @@ section { padding: 72px 0; }
 @media (max-width: 900px) {
   .compliance-grid,
   .machine-grid,
-  .about-grid,
   .contact-grid { grid-template-columns: 1fr; gap: var(--s-7); }
   .cards { grid-template-columns: 1fr; }
   .footer-contact { text-align: left; }

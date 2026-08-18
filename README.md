@@ -12,7 +12,7 @@ in its own colour.
 
 ## Pages
 - `index.html` — single landing page: hero, `#venue`, `#how`, `#compliance`,
-  `#machine`, `#about`, `#faq`, `#contact`
+  `#machine`, `#faq`, `#contact`
 
 ## Structure
 ```
@@ -33,9 +33,9 @@ Deliberately the same system as the Oakwood Marketing site, so the two read as
 one shop's work:
 
 - **Type:** Sora for headings, Inter for body (loaded from Google Fonts)
-- **Layout:** 1080px container, pill eyebrow above each section heading, 10px
-  radius, card grid with a hover lift and an accent line that draws across the
-  top, dark footer
+- **Layout:** three container widths (680px read column, 1080px standard, full
+  bleed for the dark bands), 10px radius, card grid with a hover lift, dark
+  header, hero and footer
 - **Motion:** sections fade in on scroll, primary buttons carry a soft lift, nav
   links sweep an underline. All motion is disabled for visitors who prefer
   reduced motion.
@@ -75,10 +75,6 @@ Search the project for `PASTE_YOUR`, `[Name]`, and `555` to find most of these.
 - **Business name.** Pick one from [NAMES.md](NAMES.md) and find-and-replace it
   across `index.html` (header, footer, `<title>`, meta description) and the
   email address.
-- **Your two names** in the About section, replacing `[Name] & [Name]`.
-- **Photo of the two of you.** Add it as `assets/founders.jpg` and it appears
-  automatically; until then a designed fallback panel shows instead. Landscape,
-  roughly 4:3.
 - **Machine photo.** Same deal — add it as `assets/machine.jpg`.
 - **Contact form** needs an endpoint. Create a free form at
   [Formspree](https://formspree.io) and paste the URL into `data-endpoint` on the
