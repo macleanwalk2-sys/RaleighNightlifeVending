@@ -21,7 +21,7 @@ css/styles.css       all styling
 js/main.js           scroll reveal, mobile nav, contact form
 assets/logo.svg      crescent moon mark (header and footer)
 assets/favicon.svg   browser tab icon, white moon on a plum tile
-assets/scene.svg     night skyline illustration behind the hero
+assets/scene.svg     the machine and two buildings, beside the headline
 ```
 
 No build step and no dependencies. Everything is hand written HTML, CSS, and a

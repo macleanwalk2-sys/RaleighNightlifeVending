@@ -581,7 +581,7 @@ section { padding: 72px 0; }
 .hero {
   position: relative;
   z-index: 2;
-  padding: clamp(72px, 9vw, 128px) 0 clamp(260px, 32vw, 460px);
+  padding: clamp(64px, 7vw, 104px) 0 clamp(64px, 7vw, 96px);
   background: var(--night);
   color: #fff;
   overflow: hidden;
@@ -589,34 +589,25 @@ section { padding: 72px 0; }
     radial-gradient(58rem 34rem at 82% 2%, rgba(122, 47, 79, 0.22), transparent 74%),
     radial-gradient(42rem 22rem at 60% 94%, rgba(201, 138, 60, 0.13), transparent 70%);
 }
-.hero-copy { max-width: 54rem; }
-
-/* The skyline is the hero's ground, not a framed picture beside it. */
-.hero-scene {
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: max(240px, 27vw);
-  pointer-events: none;
+/* Copy leads, the machine stands beside it. The art carries no background of
+   its own, so it sits in the hero's night rather than in a box on top of it. */
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
 }
-.hero-scene img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: 50% 100%;
+.hero-copy { max-width: 36rem; }
+.hero-art img {
   display: block;
-}
-/* Fades the illustration's own sky into the hero ground so there is no seam. */
-.hero-scene::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg,
-    var(--night) 0%,
-    rgba(23, 10, 18, 0.72) 26%,
-    rgba(23, 10, 18, 0) 62%);
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  margin-inline: auto;
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 1.5rem + 4.4vw, 4.5rem);
+  font-size: clamp(2.3rem, 1.4rem + 3.6vw, 3.9rem);
   line-height: 1.02;
   margin: 0 0 var(--s-5);
   letter-spacing: -0.04em;
@@ -686,6 +677,7 @@ section { padding: 72px 0; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
+  .hero-inner,
   .compliance-grid,
   .machine-grid,
   .contact-grid { grid-template-columns: 1fr; gap: var(--s-7); }
