@@ -75,7 +75,12 @@ Search the project for `PASTE_YOUR`, `[Name]`, and `555` to find most of these.
 - **Business name.** Pick one from [NAMES.md](NAMES.md) and find-and-replace it
   across `index.html` (header, footer, `<title>`, meta description) and the
   email address.
-- **Machine photo.** Same deal — add it as `assets/machine.jpg`.
+- **Machine photo.** Add it as `assets/machine.jpg`.
+- **Order the ID scanner.** On the VTM Mini Wall the ID scanner is an *optional*
+  module, not standard equipment. The compliance section states that the machine
+  will not dispense until an ID is scanned, and the whole sales argument rests on
+  that sentence. Confirm the scanner is on the purchase order, or the claim has
+  to come off the page.
 - **Contact form** needs an endpoint. Create a free form at
   [Formspree](https://formspree.io) and paste the URL into `data-endpoint` on the
   `<form>` in `index.html`, replacing `PASTE_YOUR_FORMSPREE_ENDPOINT_HERE`. Until
@@ -93,7 +98,8 @@ Search the project for `PASTE_YOUR`, `[Name]`, and `555` to find most of these.
 The `#compliance` section is the most important part of this page for a bar
 owner, and it currently states things as fact that need to be true before launch:
 
-- ID verification at the machine — confirm the model you buy actually does this
+- ID verification at the machine — the Mini Wall's ID scanner is an optional
+  module, so this is only true if you order it
 - Licensed distributor sourcing — have the paperwork ready to show
 - General liability coverage, with the venue named on the certificate — get the
   policy first
