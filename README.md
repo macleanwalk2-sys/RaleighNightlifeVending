@@ -11,8 +11,8 @@ in its own colour.
 `Raleigh Nightlife Vending` is a placeholder name. See [NAMES.md](NAMES.md).
 
 ## Pages
-- `index.html` — single landing page: hero, `#venue`, `#how`, `#compliance`,
-  `#machine`, `#faq`, `#contact`
+- `index.html` — single landing page: hero, `#how`, `#compliance`, `#machine`,
+  `#faq`, `#contact`
 
 ## Structure
 ```

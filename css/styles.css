@@ -1,7 +1,7 @@
 /* Raleigh Nightlife Vending — an Oakwood Marketing site.
    Shares Oakwood's palette discipline and type pairing (Sora + Inter), but the
-   structure is its own: a night band anchoring the compliance section, a route
-   for the placement sequence, three container widths, and a spacing scale with
+   structure is its own: a night band anchoring the compliance section, a set of
+   stops for the placement sequence, three container widths, and a spacing scale with
    deliberate cadence rather than one repeated value. */
 
 :root {
@@ -62,7 +62,7 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3, .brand, .route-when {
+h1, h2, h3, .brand, .stop-when {
   font-family: var(--font-display);
 }
 
@@ -236,122 +236,83 @@ img, svg { max-width: 100%; }
    Each section names its own vertical air. The night band gets the most,
    the sections flanking it get less, so the page has a cadence instead of
    one value repeated eight times. */
-section { padding: 72px 0; }
+section { padding: 60px 0; }
 .section-soft { background: var(--bg-soft); }
 
 /* Only the sections that break from the default declare their own air. The
    night band gets the most so it reads as the page's second anchor; the FAQ
    gets the least because a narrow read column needs less. */
-#compliance { padding: 104px 0; }
-#faq        { padding: 64px 0; }
+#compliance { padding: 84px 0; }
+#faq        { padding: 56px 0; }
 
-.section-head { max-width: 40rem; margin: 0 0 var(--s-7); }
-.section-head h2 { font-size: clamp(1.9rem, 1.4rem + 2.1vw, 2.8rem); margin: 0 0 var(--s-4); letter-spacing: -0.035em; line-height: 1.08; }
-.section-head p { color: var(--muted); margin: 0; font-size: 1.05rem; max-width: 34rem; }
-.section-head .section-note {
-  margin: var(--s-4) 0 0;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--brand);
-}
+.section-head { max-width: 40rem; margin: 0 0 var(--s-6); }
+.section-head h2 { font-size: clamp(1.6rem, 1.3rem + 1.3vw, 2.1rem); margin: 0 0 var(--s-4); letter-spacing: -0.035em; line-height: 1.08; }
+.section-head p { color: var(--muted); margin: 0; font-size: 0.98rem; max-width: 32rem; }
 .section-head-center { max-width: 40rem; margin-inline: auto; text-align: center; }
 .section-head-center p { margin-inline: auto; }
 
-.split-head h2 { font-size: clamp(1.9rem, 1.4rem + 2.1vw, 2.8rem); margin: 0 0 var(--s-4); letter-spacing: -0.035em; line-height: 1.08; }
-.split-head p { color: var(--muted); margin: 0; font-size: 1.05rem; }
+.split-head h2 { font-size: clamp(1.6rem, 1.3rem + 1.3vw, 2.1rem); margin: 0 0 var(--s-4); letter-spacing: -0.035em; line-height: 1.08; }
+.split-head p { color: var(--muted); margin: 0; font-size: 0.98rem; max-width: 34rem; }
 
-/* ---------- Benefit grid ----------
-   Icon sits beside the heading rather than in a tile stacked above it. */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--s-5);
-}
-.card {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: var(--s-6) var(--s-5);
-  position: relative;
-  overflow: hidden;
-  transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
-}
-.card:hover {
-  box-shadow: var(--shadow);
-  transform: translateY(-3px);
-  border-color: #cbdde0;
-}
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--brand), #2b93a0);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.25s ease;
-}
-.card:hover::before { transform: scaleX(1); }
-
-.card-head {
-  display: flex;
-  align-items: center;
-  gap: var(--s-3);
-  margin-bottom: var(--s-3);
-}
-.card-head svg {
-  width: 20px; height: 20px;
-  color: var(--brand);
-  flex-shrink: 0;
-}
-.card h3 { margin: 0; font-size: 1.05rem; letter-spacing: -0.01em; }
-.card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
-
-/* ---------- Route: the placement sequence ----------
-   A real sequence, so the markers carry time rather than decorative numbers. */
-.route {
+/* ---------- Stops: the placement sequence, headline only ---------- */
+.stops {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--s-7);
   list-style: none;
-  margin: 0;
+  margin: 0 0 var(--s-6);
   padding: 0;
 }
-.route li { position: relative; padding-top: var(--s-6); }
-
-/* Dot on the line */
-.route li::before {
+.stops li { position: relative; padding-top: var(--s-5); }
+.stops li::before {
   content: "";
   position: absolute;
   top: 0; left: 0;
-  width: 15px; height: 15px;
+  width: 13px; height: 13px;
   border-radius: 50%;
   background: var(--brand);
   z-index: 1;
 }
 /* Connector reaching to the next dot; the last stop has nowhere to go. */
-.route li::after {
+.stops li::after {
   content: "";
   position: absolute;
-  top: 7px;
-  left: 21px;
-  width: calc(100% + var(--s-7) - 21px);
+  top: 6px;
+  left: 19px;
+  width: calc(100% + var(--s-7) - 19px);
   height: 2px;
   background: var(--border);
 }
-.route li:last-child::after { content: none; }
-
-.route-when {
+.stops li:last-child::after { content: none; }
+.stop-when {
   display: block;
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--brand);
   margin-bottom: var(--s-2);
 }
-.route h3 { margin: 0 0 var(--s-2); font-size: 1.1rem; letter-spacing: -0.01em; }
-.route p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+.stops h3 { margin: 0; font-size: 1.05rem; letter-spacing: -0.015em; }
+
+/* ---------- Perks: the terms, as lines rather than boxes ---------- */
+.perks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-5) var(--s-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.perks li {
+  display: flex;
+  gap: var(--s-3);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--border);
+}
+.perks svg { width: 18px; height: 18px; color: var(--brand); flex-shrink: 0; margin-top: 2px; }
+.perks span { font-size: 0.88rem; color: var(--muted); }
+.perks b { display: block; color: var(--ink); font-weight: 600; font-size: 0.95rem; margin-bottom: 1px; }
 
 /* ---------- Night band: the page's second anchor ---------- */
 .band-night {
@@ -608,14 +569,14 @@ section { padding: 72px 0; }
 }
 
 .hero h1 {
-  font-size: clamp(2.3rem, 1.4rem + 3.6vw, 3.9rem);
+  font-size: clamp(2rem, 1.3rem + 2.7vw, 3.15rem);
   line-height: 1.02;
   margin: 0 0 var(--s-5);
   letter-spacing: -0.04em;
 }
 .hero h1 .lit { color: var(--lamp); }
 .hero .lead {
-  font-size: clamp(1.05rem, 1rem + 0.4vw, 1.3rem);
+  font-size: clamp(1rem, 0.96rem + 0.25vw, 1.12rem);
   color: var(--night-ink);
   margin: 0 0 var(--s-7);
   max-width: 36rem;
@@ -682,18 +643,18 @@ section { padding: 72px 0; }
   .compliance-grid,
   .machine-grid,
   .contact-grid { grid-template-columns: 1fr; gap: var(--s-7); }
-  .cards { grid-template-columns: 1fr; }
+  .perks { grid-template-columns: 1fr; gap: var(--s-4); }
   .footer-contact { text-align: left; }
 
-  /* The route turns vertical: dots down the left, connectors between them. */
-  .route { grid-template-columns: 1fr; gap: var(--s-6); }
-  .route li { padding-top: 0; padding-left: var(--s-6); }
-  .route li::before { top: 3px; }
-  .route li::after {
-    top: 22px;
-    left: 7px;
+  /* The stops turn vertical: dots down the left, connectors between them. */
+  .stops { grid-template-columns: 1fr; gap: var(--s-5); margin-bottom: var(--s-7); }
+  .stops li { padding-top: 0; padding-left: var(--s-6); }
+  .stops li::before { top: 4px; }
+  .stops li::after {
+    top: 19px;
+    left: 6px;
     width: 2px;
-    height: calc(100% + var(--s-6) - 22px);
+    height: calc(100% + var(--s-5) - 19px);
   }
 }
 
