@@ -1,0 +1,5 @@
+# The impeccable design skill (github.com/pbakaus/impeccable v4.1.1, Apache 2.0)
+# is vendored under .claude/. It is a tool used while building this site, not
+# part of the site, and at ~2.8 MB of JavaScript it is 195x the size of the page
+# itself. Keep it out of GitHub's language stats and collapsed in diffs.
+.claude/skills/impeccable/** linguist-vendored
