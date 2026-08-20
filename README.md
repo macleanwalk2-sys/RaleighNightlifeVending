@@ -65,8 +65,9 @@ branch `main`, folder `/ (root)`. Live at
 `https://macleanwalk2-sys.github.io/RaleighNightlifeVending/` within a minute or
 two of a push.
 
-The stylesheet link carries a `?v=` number. Bump it in `index.html` whenever
-`styles.css` changes, so browsers pick up the new file instead of a cached copy.
+The stylesheet and script links carry a `?v=` number. Bump both in
+`index.html` whenever `styles.css` or `main.js` changes, so browsers pick up the
+new files instead of cached copies.
 
 > This repository is **public**, so anything committed here is visible to anyone
 > who finds it. Worth flipping to private (Settings → General → Danger Zone)

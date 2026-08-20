@@ -43,48 +43,66 @@
 
 /* ---------- Scroll spy: underline the nav link for the section in view ----- */
 (function () {
-  var links = [].slice.call(document.querySelectorAll('.nav-links a[href^="#"]:not(.btn)'));
-  if (!links.length || !('IntersectionObserver' in window)) return;
+  var nav = document.querySelector('.nav-links');
+  if (!nav) return;
 
-  var byId = {};
-  var sections = [];
-  links.forEach(function (a) {
+  var header = document.querySelector('.site-header');
+
+  // Every nav target divides the page into a stretch it owns, the CTA's
+  // included. The CTA cannot carry an underline, so its stretch — the contact
+  // band at the foot of the page — simply clears the nav instead.
+  var stops = [];
+  [].forEach.call(nav.querySelectorAll('a[href^="#"]'), function (a) {
     var el = document.getElementById(a.getAttribute('href').slice(1));
-    if (el) { byId[el.id] = a; sections.push(el); }
+    if (el) stops.push({ el: el, link: a.classList.contains('btn') ? null : a });
   });
-  if (!sections.length) return;
+  var links = stops.map(function (s) { return s.link; }).filter(Boolean);
+  if (!links.length) return;
 
-  // Nav order is not page order (For Your Venue sits above How It Works), so
-  // sort by document position before picking the topmost visible section.
-  sections.sort(function (a, b) {
-    return (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING) ? -1 : 1;
+  // Nav order is not guaranteed to be page order, so sort by document position
+  // before walking the list top to bottom.
+  stops.sort(function (a, b) {
+    return (a.el.compareDocumentPosition(b.el) & Node.DOCUMENT_POSITION_FOLLOWING) ? -1 : 1;
   });
 
-  var visible = {};
-
-  function paint() {
-    // The last section in document order that is still in the band wins. The
-    // outgoing section's tail overlaps the incoming section's head, and it is
-    // the incoming one the reader has actually arrived at.
-    var current = null;
-    for (var i = 0; i < sections.length; i++) {
-      if (visible[sections[i].id]) current = sections[i].id;
-    }
-    links.forEach(function (a) { a.classList.remove('active'); });
-    if (current && byId[current]) byId[current].classList.add('active');
+  // The reading line: a few pixels below where a section lands when you click
+  // its nav link. Read from scroll-margin-top so the two can never drift apart.
+  var line = 100;
+  function measure() {
+    var pad = parseFloat(window.getComputedStyle(stops[0].el).scrollMarginTop);
+    if (!isFinite(pad)) pad = (header ? header.offsetHeight : 68) + 28;
+    line = pad + 4;
   }
 
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) { visible[e.target.id] = e.isIntersecting; });
-    paint();
-  }, {
-    // Ignore the sticky header, and only count a section once it really owns
-    // the viewport rather than as its first pixel appears.
-    rootMargin: '-68px 0px -55% 0px',
-    threshold: 0
-  });
+  var active;
 
-  sections.forEach(function (s) { observer.observe(s); });
+  function paint() {
+    // A link lights up the moment its section's top edge slides under the
+    // header, and holds until the next target reaches the same line. Above the
+    // first target nothing is underlined, rather than a section the reader has
+    // not arrived at yet.
+    var current = null;
+    for (var i = 0; i < stops.length; i++) {
+      if (stops[i].el.getBoundingClientRect().top > line) break;
+      current = stops[i].link;
+    }
+    if (current === active) return;
+    active = current;
+    links.forEach(function (a) { a.classList.toggle('active', a === current); });
+  }
+
+  var queued = false;
+  function onScroll() {
+    if (queued) return;
+    queued = true;
+    if (!window.requestAnimationFrame) { queued = false; paint(); return; }
+    window.requestAnimationFrame(function () { queued = false; paint(); });
+  }
+
+  measure();
+  paint();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', function () { measure(); onScroll(); });
 })();
 
 /* ---------- Mobile nav ----------------------------------------------------- */
