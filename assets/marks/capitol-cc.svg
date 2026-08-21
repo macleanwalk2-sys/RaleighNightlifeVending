@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" color="#1b3a5f"
+     role="img" aria-label="Capitol Commerce">
+  <title>Capitol CC</title>
+  <g fill="none" stroke="currentColor" stroke-linecap="round">
+    <!-- The C, around everything -->
+    <path d="M35.47 7.62A20 20 0 1 0 35.47 40.38" stroke-width="5"/>
+    <!-- The reverse c, around the Capitol -->
+    <path d="M15.97 35.47A14 14 0 1 0 15.97 12.53" stroke-width="3.4"/>
+  </g>
+  <!-- The Capitol -->
+  <g fill="currentColor">
+    <rect x="23.4" y="14.4" width="1.2" height="2.6" rx="0.6"/>
+    <path d="M18.2 25.8A5.8 6.8 0 0 1 29.8 25.8Z"/>
+    <rect x="17.2" y="26.4" width="13.6" height="2.3" rx="0.9"/>
+    <rect x="18.4" y="29.2" width="2.3" height="4" rx="0.8"/>
+    <rect x="22.85" y="29.2" width="2.3" height="4" rx="0.8"/>
+    <rect x="27.3" y="29.2" width="2.3" height="4" rx="0.8"/>
+  </g>
+</svg>
