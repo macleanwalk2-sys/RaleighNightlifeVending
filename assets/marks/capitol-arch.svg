@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" color="#1b3a5f"
+     role="img" aria-label="Capitol Commerce">
+  <title>Capitol Arch</title>
+  <!-- Both C's, turned ninety degrees and nested as they were: the dome. -->
+  <g fill="none" stroke="currentColor" stroke-linecap="round">
+    <path d="M10 28A14 14 0 0 1 38 28" stroke-width="5.5"/>
+    <path d="M17.5 28A6.5 6.5 0 0 1 30.5 28" stroke-width="4"/>
+  </g>
+  <!-- Cornice, colonnade, stylobate -->
+  <g fill="currentColor">
+    <rect x="7" y="30.6" width="34" height="3" rx="1.1"/>
+    <rect x="12.1" y="34.6" width="3.2" height="6" rx="1"/>
+    <rect x="18.7" y="34.6" width="3.2" height="6" rx="1"/>
+    <rect x="25.3" y="34.6" width="3.2" height="6" rx="1"/>
+    <rect x="31.9" y="34.6" width="3.2" height="6" rx="1"/>
+    <rect x="8" y="41.4" width="32" height="3.2" rx="1.1"/>
+  </g>
+</svg>

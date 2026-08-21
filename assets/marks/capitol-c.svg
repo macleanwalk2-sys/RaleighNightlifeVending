@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" color="#1b3a5f"
+     role="img" aria-label="Capitol Commerce">
+  <title>Capitol C</title>
+  <!-- The C. Colour comes from `color` above, or from CSS when this is inlined. -->
+  <path fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"
+        d="M32.6 11.71A15 15 0 1 0 32.6 36.29"/>
+  <!-- The Capitol, held in the counter -->
+  <g fill="currentColor">
+    <rect x="23.4" y="14.4" width="1.2" height="2.6" rx="0.6"/>
+    <path d="M17.2 25.6A6.8 8.2 0 0 1 30.8 25.6Z"/>
+    <rect x="15.4" y="26.4" width="17.2" height="2.6" rx="1"/>
+    <rect x="18.4" y="29.8" width="2.6" height="3.8" rx="0.9"/>
+    <rect x="22.7" y="29.8" width="2.6" height="3.8" rx="0.9"/>
+    <rect x="27" y="29.8" width="2.6" height="3.8" rx="0.9"/>
+  </g>
+</svg>
